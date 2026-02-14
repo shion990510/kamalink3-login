@@ -1,0 +1,143 @@
+.instagram-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 60px 20px;
+  margin: 40px 0;
+  border-radius: 12px;
+}
+
+.instagram-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.instagram-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.instagram-header h2 {
+  font-size: 36px;
+  margin: 0 0 10px 0;
+  font-weight: bold;
+}
+
+.instagram-header p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.instagram-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.instagram-card {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instagram-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.instagram-icon svg {
+  width: 64px;
+  height: 64px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.instagram-card h3 {
+  font-size: 24px;
+  margin: 15px 0 10px 0;
+  color: #333;
+}
+
+.instagram-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.instagram-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #FD5949 0%, #D6249F 50%, #285AEB 100%);
+  color: white;
+  padding: 12px 30px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(212, 37, 159, 0.4);
+}
+
+.instagram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 37, 159, 0.6);
+}
+
+.instagram-embed {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-height: 800px;
+}
+
+@media (max-width: 768px) {
+  .instagram-content {
+    grid-template-columns: 1fr;
+  }
+
+  .instagram-header h2 {
+    font-size: 28px;
+  }
+
+  .instagram-section {
+    padding: 40px 15px;
+    margin: 20px 0;
+  }
+
+  .instagram-card {
+    padding: 20px 15px;
+  }
+
+  .instagram-embed {
+    max-height: 600px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instagram-header h2 {
+    font-size: 24px;
+  }
+
+  .instagram-header p {
+    font-size: 14px;
+  }
+
+  .instagram-card h3 {
+    font-size: 20px;
+  }
+
+  .instagram-button {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+
+  .instagram-embed {
+    max-height: 400px;
+  }
+}
