@@ -4,15 +4,28 @@
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
 }
 
 .signup-box {
   background: white;
-  padding: 3rem;
-  border-radius: 8px;
+  padding: 2rem;
+  border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   width: 100%;
   max-width: 450px;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .signup-box {
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .signup-box h1 {
+    font-size: 1.5rem;
+  }
 }
 
 .signup-box h1 {
@@ -41,10 +54,19 @@
 
 .form-group input {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.875rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+@media (max-width: 768px) {
+  .form-group input {
+    padding: 1rem;
+    font-size: 16px; /* iOS のズームを防ぐ */
+  }
 }
 
 .form-group input:focus {
@@ -55,15 +77,24 @@
 
 .signup-button {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.875rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.3s;
+  min-height: 44px; /* タッチ領域の最小サイズ */
+}
+
+@media (max-width: 768px) {
+  .signup-button {
+    padding: 1rem;
+    font-size: 1.05rem;
+    min-height: 48px;
+  }
 }
 
 .signup-button:hover:not(:disabled) {
