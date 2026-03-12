@@ -64,7 +64,7 @@ export const postMessage = async (req: Request, res: Response) => {
     await messageRef.set({
       content: content.trim(),
       authorId: userId,
-      authorName: userData?.name || req.user.email || 'Anonymous',
+      authorName: userData?.name || req.user?.email || 'Anonymous',
       createdAt: new Date(),
     })
 
