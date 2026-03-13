@@ -1,6 +1,6 @@
 import express from 'express'
-import { authMiddleware } from '../middleware/auth'
-import { updateLocation, getActiveLocations, stopSharing } from '../controllers/locationController'
+import { authMiddleware } from '../middleware/auth.js'
+import { updateLocation, getActiveLocations, stopSharing } from '../controllers/locationController.js'
 
 const router = express.Router()
 

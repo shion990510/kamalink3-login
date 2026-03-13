@@ -1,5 +1,5 @@
 import { Router, Request, Response } from 'express'
-import { authMiddleware } from '../middleware/auth'
+import { authMiddleware } from '../middleware/auth.js'
 import {
   createEvent,
   getEvents,
@@ -9,7 +9,7 @@ import {
   setDateAvailability,
   getUserDateAvailability,
   getAllDateAvailability,
-} from '../controllers/eventController'
+} from '../controllers/eventController.js'
 
 const router = Router()
 

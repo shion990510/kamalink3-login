@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { db } from '../config/firebase'
+import { db } from '../config/firebase.js'
 import { DecodedIdToken } from 'firebase-admin/auth'
 
 declare global {

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { auth, db } from '../config/firebase'
-import { generateToken } from '../config/jwt'
+import { auth, db } from '../config/firebase.js'
+import { generateToken } from '../config/jwt.js'
 
 export const login = async (req: Request, res: Response) => {
   try {

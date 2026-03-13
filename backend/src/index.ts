@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import authRoutes from './routes/auth'
-import collectorRoutes from './routes/collectors'
-import locationRoutes from './routes/locations'
-import eventRoutes from './routes/events'
-import messageRoutes from './routes/messages'
+import authRoutes from './routes/auth.js'
+import collectorRoutes from './routes/collectors.js'
+import locationRoutes from './routes/locations.js'
+import eventRoutes from './routes/events.js'
+import messageRoutes from './routes/messages.js'
 
 dotenv.config()
 

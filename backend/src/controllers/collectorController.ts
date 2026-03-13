@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { auth, db } from '../config/firebase'
-import { AuthRequest } from '../middleware/auth'
+import { auth, db } from '../config/firebase.js'
+import { AuthRequest } from '../middleware/auth.js'
 
 export const getCollectors = async (req: AuthRequest, res: Response) => {
   try {

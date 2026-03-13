@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { db } from '../config/firebase'
-import { AuthRequest } from '../middleware/auth'
+import { db } from '../config/firebase.js'
+import { AuthRequest } from '../middleware/auth.js'
 
 export const updateLocation = async (req: AuthRequest, res: Response) => {
   try {
