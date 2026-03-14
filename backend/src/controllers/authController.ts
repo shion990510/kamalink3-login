@@ -106,6 +106,10 @@ export const signup = async (req: Request, res: Response) => {
     })
   } catch (error: any) {
     console.error('Signup error:', error)
-    return res.status(500).json({ message: 'サーバーエラーが発生しました' })
+    return res.status(500).json({
+      message: 'サーバーエラーが発生しました',
+      errorCode: error?.code || null,
+      errorDetail: error?.message || null,
+    })
   }
 }
