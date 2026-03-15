@@ -3,10 +3,29 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
+const normalizeEnvValue = (value?: string) => {
+  if (!value) {
+    return undefined
+  }
+
+  const trimmed = value.trim()
+  const unquoted = trimmed.replace(/^['\"]|['\"]$/g, '')
+  return unquoted
+}
+
+const normalizePrivateKey = (value?: string) => {
+  const normalized = normalizeEnvValue(value)
+  if (!normalized) {
+    return undefined
+  }
+
+  return normalized.replace(/\\n/g, '\n')
+}
+
 const serviceAccount = {
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  projectId: normalizeEnvValue(process.env.FIREBASE_PROJECT_ID),
+  privateKey: normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
+  clientEmail: normalizeEnvValue(process.env.FIREBASE_CLIENT_EMAIL),
 }
 
 if (!admin.apps.length) {
