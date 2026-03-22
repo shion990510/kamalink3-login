@@ -25,7 +25,15 @@ app.use('/api/messages', messageRoutes)
 
 // Health check
 app.get('/health', (req: Request, res: Response) => {
-  res.json({ status: 'ok' })
+  res.json({
+    status: 'ok',
+    firebase: {
+      hasServiceAccountJson: !!process.env.FIREBASE_SERVICE_ACCOUNT_JSON,
+      hasProjectId: !!process.env.FIREBASE_PROJECT_ID,
+      hasPrivateKey: !!process.env.FIREBASE_PRIVATE_KEY,
+      hasClientEmail: !!process.env.FIREBASE_CLIENT_EMAIL,
+    },
+  })
 })
 
 // Error handling
