@@ -22,10 +22,28 @@ const normalizePrivateKey = (value?: string) => {
   return normalized.replace(/\\n/g, '\n')
 }
 
+const parseServiceAccountJson = () => {
+  const raw = normalizeEnvValue(process.env.FIREBASE_SERVICE_ACCOUNT_JSON)
+  if (!raw) return null
+  try {
+    const parsed = JSON.parse(raw)
+    return {
+      projectId: parsed.project_id as string,
+      clientEmail: parsed.client_email as string,
+      privateKey: parsed.private_key as string,
+    }
+  } catch (e) {
+    console.error('FIREBASE_SERVICE_ACCOUNT_JSON のパースに失敗しました:', e)
+    return null
+  }
+}
+
+const fromJson = parseServiceAccountJson()
+
 const serviceAccount = {
-  projectId: normalizeEnvValue(process.env.FIREBASE_PROJECT_ID),
-  privateKey: normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
-  clientEmail: normalizeEnvValue(process.env.FIREBASE_CLIENT_EMAIL),
+  projectId: fromJson?.projectId ?? normalizeEnvValue(process.env.FIREBASE_PROJECT_ID),
+  clientEmail: fromJson?.clientEmail ?? normalizeEnvValue(process.env.FIREBASE_CLIENT_EMAIL),
+  privateKey: fromJson?.privateKey ?? normalizePrivateKey(process.env.FIREBASE_PRIVATE_KEY),
 }
 
 if (!admin.apps.length) {
