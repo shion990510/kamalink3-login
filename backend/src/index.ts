@@ -25,7 +25,10 @@ const corsOptions = {
     if (allowedOrigins.includes(origin)) {
       callback(null, true)
     } else {
-      callback(new Error('Not allowed by CORS'))
+      // Reject the request by passing false instead of an Error
+      console.log(`CORS: Rejected origin: ${origin}`)
+      console.log(`CORS: Allowed origins: ${allowedOrigins.join(', ')}`)
+      callback(null, false)
     }
   },
   credentials: true,
@@ -66,4 +69,6 @@ app.use((err: any, req: Request, res: Response, next: any) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`)
+  console.log(`CORS: Allowed origins: ${allowedOrigins.join(', ')}`)
+  console.log(`Environment: ${process.env.NODE_ENV || 'development'}`)
 })
